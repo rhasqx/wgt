@@ -261,7 +261,7 @@ dates.each_with_index do |date, j|
     pdf.text_box Time.now.strftime("%Y-%m-%d  %H:%M"), options.merge({
         :align => :right, :valign => :center, :size => 6
     })
-    pdf.text_box "https://github.com/rhasqx/wgt-2016/", options.merge({
+    pdf.text_box "https://github.com/rhasqx/wgt/", options.merge({
         :align => :left, :valign => :center, :size => 6
     })
     pdf.font "Helvetica"
