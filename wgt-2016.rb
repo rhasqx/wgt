@@ -288,7 +288,7 @@ dates.each_with_index do |date, j|
             :at     => [x, y],
             :size   => 6
         }
-        pdf.text_box location.truncate(20), options.merge({:align => :center, :valign => :top, :style  => :bold})
+        pdf.text_box location.truncate(18), options.merge({:align => :center, :valign => :top, :style  => :bold})
 
         query = sprintf "select ts, artist from gigs where %s and %s order by ts",
                     cond_date(date), cond_location(location)
@@ -300,7 +300,7 @@ dates.each_with_index do |date, j|
             hh = gig[0][11..12].to_i
             hh += 24 if hh < 11
             gigs[hh] += "\n" if !gigs[hh].empty?
-            gigs[hh] += "%-5s  %-s" % [gig[0][11..15], gig[1].truncate(21)]
+            gigs[hh] += "%-5s  %-s" % [gig[0][11..15], gig[1].truncate(16)]
         end
         gigs.each do |hh, str|
             pdf.text_box str, options.merge({
